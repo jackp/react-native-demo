@@ -1,6 +1,9 @@
 # react-native-demo
 Small, cross-platform application using React Native
 
+![image](https://user-images.githubusercontent.com/1334476/54556757-f1f49600-498f-11e9-93a4-cf62d5338a92.png)
+![image](https://user-images.githubusercontent.com/1334476/54556783-046ecf80-4990-11e9-8f70-b4ced1d596e7.png)
+
 ## Technologies Used
 
 - React Native with Typescript
