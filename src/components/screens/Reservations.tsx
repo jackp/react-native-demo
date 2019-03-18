@@ -4,6 +4,7 @@
  */
 
 import React from "react";
+import { Query } from "react-apollo";
 import {
   Container,
   Content,
@@ -16,35 +17,12 @@ import {
 
 import AddReservationModal from "../modals/AddReservation";
 import ReservationList from "../organisms/ReservationList";
-import { Reservation } from "../../types/Reservation";
+
+import { GET_RESERVATIONS } from "../../graphql/reservations";
 
 interface IState {
   showAddReservationModel: boolean;
 }
-
-const reservations: Reservation[] = [
-  {
-    id: "1",
-    name: "Jack Parker",
-    hotelName: "Hilton PVD",
-    arrivalDate: "3/7/2019",
-    departureDate: "3/17/2019"
-  },
-  {
-    id: "2",
-    name: "Bob Barker",
-    hotelName: "Hilton Las Vegas",
-    arrivalDate: "3/17/2019",
-    departureDate: "6/17/2019"
-  },
-  {
-    id: "3",
-    name: "George Costanza",
-    hotelName: "Hilton NYC",
-    arrivalDate: "4/7/2019",
-    departureDate: "4/17/2019"
-  }
-];
 
 class ReservationsScreen extends React.Component<{}, IState> {
   public state: IState = {
@@ -60,7 +38,14 @@ class ReservationsScreen extends React.Component<{}, IState> {
           </Body>
         </Header>
         <Content>
-          <ReservationList reservations={reservations} />
+          <Query query={GET_RESERVATIONS}>
+            {({ data, loading, error }) => {
+              if (loading) return <Title>Loading....</Title>;
+              if (error) return `Error! ${error.message}`;
+
+              return <ReservationList reservations={data.reservations} />;
+            }}
+          </Query>
         </Content>
         <Fab position="bottomRight" onPress={this.toggleAddReservationModal}>
           <Icon name="add" />
