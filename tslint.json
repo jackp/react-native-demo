@@ -9,6 +9,7 @@
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "jsx-self-close": false,
+    "jsx-no-lambda": false,
     "interface-name": false
   }
 }
