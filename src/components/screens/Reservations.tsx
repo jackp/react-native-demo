@@ -4,20 +4,21 @@
  */
 
 import React from "react";
+import { Query } from "react-apollo";
 import {
   Container,
   Content,
   Header,
   Body,
   Title,
-  List,
-  ListItem,
-  Text,
   Fab,
   Icon
 } from "native-base";
 
 import AddReservationModal from "../modals/AddReservation";
+import ReservationList from "../organisms/ReservationList";
+
+import { GET_RESERVATIONS } from "../../graphql/reservations";
 
 interface IState {
   showAddReservationModel: boolean;
@@ -33,21 +34,18 @@ class ReservationsScreen extends React.Component<{}, IState> {
       <Container>
         <Header>
           <Body>
-            <Title>My Reservations</Title>
+            <Title>Current Reservations</Title>
           </Body>
         </Header>
         <Content>
-          <List>
-            <ListItem>
-              <Text>Reservation 1</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Reservation 2</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Reservation 3</Text>
-            </ListItem>
-          </List>
+          <Query query={GET_RESERVATIONS}>
+            {({ data, loading, error }) => {
+              if (loading) return <Title>Loading....</Title>;
+              if (error) return `Error! ${error.message}`;
+
+              return <ReservationList reservations={data.reservations} />;
+            }}
+          </Query>
         </Content>
         <Fab position="bottomRight" onPress={this.toggleAddReservationModal}>
           <Icon name="add" />

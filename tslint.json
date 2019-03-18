@@ -1,12 +1,14 @@
 {
-    "extends": [
-        "tslint:recommended",
-        "tslint-config-standard",
-        "tslint-react",
-        "tslint-config-prettier"
-    ],
-    "rules": {
-        "ordered-imports": false,
-        "jsx-self-close": false
-    }
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "jsx-self-close": false,
+    "interface-name": false
+  }
 }

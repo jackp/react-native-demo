@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReservationList /> renders all reservations 1`] = `
+<Styled(List)>
+  <Styled(ListItem)
+    key="1"
+  >
+    <Reservation
+      reservation={
+        Object {
+          "arrivalDate": "3/7/2019",
+          "departureDate": "3/17/2019",
+          "hotelName": "Hilton PVD",
+          "id": "1",
+          "name": "Jack Parker",
+        }
+      }
+    />
+  </Styled(ListItem)>
+  <Styled(ListItem)
+    key="2"
+  >
+    <Reservation
+      reservation={
+        Object {
+          "arrivalDate": "3/17/2019",
+          "departureDate": "6/17/2019",
+          "hotelName": "Hilton Las Vegas",
+          "id": "2",
+          "name": "Bob Barker",
+        }
+      }
+    />
+  </Styled(ListItem)>
+  <Styled(ListItem)
+    key="3"
+  >
+    <Reservation
+      reservation={
+        Object {
+          "arrivalDate": "4/7/2019",
+          "departureDate": "4/17/2019",
+          "hotelName": "Hilton NYC",
+          "id": "3",
+          "name": "George Costanza",
+        }
+      }
+    />
+  </Styled(ListItem)>
+</Styled(List)>
+`;
