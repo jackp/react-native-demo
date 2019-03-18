@@ -3,13 +3,10 @@
  * - Root component for application
  */
 
-import React from 'react';
-import {Text, View} from 'react-native';
+import React from "react";
 
-const App: React.SFC = () => (
-  <View >
-    <Text>App</Text>
-  </View>
-);
+import ReservationsScreen from "./components/screens/Reservations";
+
+const App: React.FunctionComponent = () => <ReservationsScreen />;
 
 export default App;
